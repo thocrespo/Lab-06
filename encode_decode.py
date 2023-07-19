@@ -16,6 +16,17 @@ def encode(password):
         resul = resul + str(temp)
     return resul
 
+#Simple Decode Function by Rachel McCallum
+def decode(password):
+    resul = ''
+    temp = 0
+    for num in password:
+        temp = int(num) - 3
+        if temp < 0:
+            temp = temp + 10
+        resul = resul + str(temp)
+    return resul
+
 #The Start of the Looping Encode and Decode Menu
 if __name__ == '__main__':
     while True:
@@ -34,7 +45,8 @@ if __name__ == '__main__':
             print('Your password has been encoded and stored!')
             print()
         elif option == 2:
-            print('The encoded password is ' + enpasswor +', and the original password is ' + passwor + '.')
+            depasswor = decode(encode(passwor))
+            print('The encoded password is ' + enpasswor +', and the original password is ' + depasswor + '.')
             print()
         elif option == 3:
              break
